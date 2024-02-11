@@ -13,7 +13,7 @@ _TechnologyUsed_ **HTML | CSS | JavaScript**
 The project follows a modular structure for easy understanding and maintenance.
 
 ## Demo
-Check out the live demo https://chakrabortypallab.github.io/Calculator/.
+Check out the live demo https://pallab-chakraborty.github.io/Calculator/.
 
 Feel free to explore the code and contribute!
 
