@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CalcPro — Advanced Calculator</title>
+<meta name="description" content="A fast, keyboard-friendly calculator with Standard, Scientific, Programmer, and Unit Converter modes, plus calculation history."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ── History Panel ── -->
+  <div class="history-panel" id="history-panel">
+    <div class="h-header">
+      <span class="h-title">History</span>
+      <div style="display:flex;gap:6px;align-items:center;">
+        <button class="h-clear" id="h-clear-btn">Clear</button>
+        <button class="h-toggle" id="h-toggle" title="Collapse">
+          <i class="fa-solid fa-chevron-left" id="h-toggle-icon"></i>
+        </button>
+      </div>
+    </div>
+    <div class="h-list" id="h-list">
+      <div class="h-empty"><i class="fa-solid fa-clock-rotate-left"></i>No history yet</div>
+    </div>
+  </div>
+
+  <!-- ── Calculator ── -->
+  <div class="calc" id="calc">
+
+    <!-- Mode Tabs -->
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="standard">Standard</button>
+      <button class="mode-tab" data-mode="scientific">Scientific</button>
+      <button class="mode-tab" data-mode="programmer">Programmer</button>
+      <button class="mode-tab" data-mode="converter">Converter</button>
+    </div>
+
+    <!-- Display -->
+    <div class="display" id="display-area">
+      <div class="display-memory">
+        <span class="mem-indicator" id="mem-indicator">M</span>
+      </div>
+      <div class="display-mode-badge" id="mode-badge">STD</div>
+      <div class="display-expr" id="display-expr"></div>
+      <div class="display-main" id="display-main" title="Click to copy">0</div>
+      <div class="display-sub">
+        <span class="display-hint" id="display-hint">Use keyboard or buttons</span>
+        <button class="copy-btn" id="copy-btn"><i class="fa-regular fa-copy"></i> Copy</button>
+      </div>
+      <!-- Programmer base display -->
+      <div class="prog-display" id="prog-display">
+        <div class="prog-row"><span class="prog-base">HEX</span><span class="prog-val" id="prog-hex">0</span></div>
+        <div class="prog-row"><span class="prog-base">DEC</span><span class="prog-val" id="prog-dec">0</span></div>
+        <div class="prog-row"><span class="prog-base">OCT</span><span class="prog-val" id="prog-oct">0</span></div>
+        <div class="prog-row"><span class="prog-base">BIN</span><span class="prog-val" id="prog-bin">0</span></div>
+      </div>
+    </div>
+
+    <!-- Angle toggle (scientific only) -->
+    <div class="angle-toggle" id="angle-toggle">
+      <button class="angle-btn active" id="deg-btn" data-angle="deg">DEG</button>
+      <button class="angle-btn" id="rad-btn" data-angle="rad">RAD</button>
+    </div>
+
+    <!-- Keypad -->
+    <div class="keypad" id="keypad">
+      <!-- Rendered by JS -->
+    </div>
+
+    <!-- Unit Converter -->
+    <div class="unit-panel" id="unit-panel">
+      <div class="unit-type-row" id="unit-type-row"></div>
+      <div class="unit-row">
+        <input class="unit-input" id="unit-from-val" type="number" placeholder="0" value="1"/>
+        <select class="unit-select" id="unit-from-sel"></select>
+      </div>
+      <div style="display:flex;justify-content:center;">
+        <button class="unit-swap" id="unit-swap"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+      </div>
+      <div class="unit-row">
+        <input class="unit-input" id="unit-to-val" type="number" placeholder="0" readonly/>
+        <select class="unit-select" id="unit-to-sel"></select>
+      </div>
+      <div class="unit-result-box">
+        <div class="unit-result-val" id="unit-result">—</div>
+        <div class="unit-result-label" id="unit-result-label">Select units above</div>
+      </div>
+    </div>
+
+  </div><!-- /.calc -->
+
+</div><!-- /.app -->
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <i class="fa-solid fa-check" style="color:var(--amber)"></i>
+  <span id="toast-msg">Copied!</span>
+</div>
+
+<script src="js/engine.js"></script>
+<script src="js/keypad.js"></script>
+<script src="js/modes.js"></script>
+<script src="js/keyboard.js"></script>
+<script src="js/converter.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "calcpro",
+  "version": "1.0.0",
+  "description": "A fast, keyboard-friendly calculator with Standard, Scientific, Programmer, and Unit Converter modes, plus calculation history.",
+  "private": true,
+  "license": "MIT",
+  "author": "Pallab Chakraborty",
+  "homepage": "https://pallab-chakraborty.github.io/Calculator/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pallab-Chakraborty/Calculator.git"
+  },
+  "scripts": {
+    "start": "npx http-server . -p 8000 -c-1",
+    "serve": "npx http-server . -p 8000 -c-1"
+  },
+  "keywords": [
+    "calculator",
+    "scientific-calculator",
+    "programmer-calculator",
+    "unit-converter",
+    "static-site"
+  ]
+}
